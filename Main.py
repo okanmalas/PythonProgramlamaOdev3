@@ -51,10 +51,18 @@ class Resolver:
                     result += key
             print (f"Key " + str(keyCount) + " -> " + result + "  --  " + String.reverseText(result))
 
+def getInt():
+    try:
+        count = int(input())
+        return count
+    except ValueError:
+        print("Geçerli Bir Sayı Giriniz -> ")
+        return getInt()
+
 def run():
     text = String.getText()
     print("Öteleme miktarını giriniz -> ")
-    count = int(input())
+    count = getInt()
     print("---------------------------------------------")
     print("Girilen Metin -> " + text)
     text = String.reverseText(text)
@@ -64,5 +72,4 @@ def run():
     print("----------------------------------------------")
     Resolver.decode(text)
 
-if __name__ == "__main__":
-    run()
+run()
